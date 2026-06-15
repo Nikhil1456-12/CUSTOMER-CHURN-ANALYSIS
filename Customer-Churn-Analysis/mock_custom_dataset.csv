@@ -1,0 +1,4 @@
+CustomerID,Age,Gender,Tenure,Usage Frequency,Support Calls,Payment Delay,Subscription Type,Contract Length,Total Spend,Last Interaction,Churn
+1,30,Male,5,10,1,None,Basic,Monthly,120.50,10,No
+2,70,Female,24,20,4,High,Premium,Annual,2400.00,5,Yes
+3,45,Male,12,15,2,Low,Basic,Monthly,650.00,20,No
