@@ -1,8 +1,0 @@
-streamlit>=1.28.0
-pandas
-numpy
-prophet>=1.1.0
-scikit-learn
-plotly>=5.10.0
-matplotlib
-seaborn
