@@ -91,7 +91,7 @@
     }
     .btn-github:hover { background: rgba(255,255,255,0.2); }
 
-    /* Tab Navigation (Matching Agung M visual layout) */
+    /* Tab Navigation */
     .tab-bar-container {
       background: white;
       border-bottom: 1px solid var(--border);
@@ -251,7 +251,7 @@
       display: block;
     }
 
-    /* Overview Layout (Agung M Reference match) */
+    /* Overview Layout */
     .overview-grid {
       display: grid;
       grid-template-columns: 1.25fr 1fr;
@@ -284,19 +284,19 @@
       background: white;
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 32px;
+      padding: 28px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       position: relative;
       box-shadow: 0 2px 10px rgba(0,0,0,0.02);
-      min-height: 420px;
+      min-height: 380px;
     }
     .chart-wrapper {
       position: relative;
-      width: 280px;
-      height: 280px;
+      width: 260px;
+      height: 260px;
     }
     .chart-center-badge {
       position: absolute;
@@ -307,13 +307,13 @@
       pointer-events: none;
     }
     .chart-center-q {
-      font-size: 44px;
+      font-size: 40px;
       font-weight: 900;
       color: #0f172a;
       line-height: 1;
     }
     .chart-center-sub {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
       color: var(--muted);
       text-transform: uppercase;
@@ -322,7 +322,7 @@
       display: flex;
       justify-content: center;
       gap: 24px;
-      margin-top: 24px;
+      margin-top: 20px;
       width: 100%;
     }
     .legend-item {
@@ -336,6 +336,135 @@
       width: 14px;
       height: 14px;
       border-radius: 4px;
+    }
+
+    /* Author Profile Card (Nikhil Sai Kumar Kandi) */
+    .author-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+    }
+    .author-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .author-info-flex {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0284c7, #38bdf8);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 17px;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+      flex-shrink: 0;
+    }
+    .author-name-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .author-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .author-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0284c7;
+      background: #e0f2fe;
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+    .author-loc {
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-top: 3px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .btn-view-profile {
+      background: #0284c7;
+      color: white !important;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: 8px;
+      white-space: nowrap;
+      transition: background 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-view-profile:hover {
+      background: #0369a1;
+    }
+    .author-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 14px;
+    }
+    .project-mini-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .project-mini-card:hover {
+      border-color: #0284c7;
+      background: #f0f9ff;
+      transform: translateY(-2px);
+    }
+    .project-mini-card.active {
+      border-color: #0284c7;
+      background: #f0f9ff;
+    }
+    .mini-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 2px;
+      line-height: 1.3;
+    }
+    .mini-sub {
+      font-size: 10.5px;
+      color: var(--muted);
+    }
+    .mini-tag {
+      font-size: 10px;
+      font-weight: 700;
+      color: #0284c7;
+      margin-top: 6px;
+      display: inline-block;
     }
 
     /* Grid for correlations */
@@ -441,6 +570,7 @@
     @media (max-width: 900px) {
       .overview-grid, .grid-2col, .sim-card { grid-template-columns: 1fr; }
       .upload-flex { flex-direction: column; align-items: flex-start; }
+      .author-projects-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -461,7 +591,7 @@
     </div>
   </header>
 
-  <!-- Sub-Header Tabs (Exact match to reference) -->
+  <!-- Sub-Header Tabs -->
   <div class="tab-bar-container">
     <nav class="tab-bar">
       <button class="tab-item active" onclick="setTab('overview')">Overview</button>
@@ -517,7 +647,7 @@
       </div>
     </section>
 
-    <!-- TAB 1: OVERVIEW (Agung M Reference Layout) -->
+    <!-- TAB 1: OVERVIEW -->
     <div id="tab-overview" class="tab-panel active">
       <div class="overview-grid">
         <div class="text-card">
@@ -536,24 +666,72 @@
           </div>
         </div>
 
-        <div class="chart-card">
-          <div class="chart-wrapper">
-            <canvas id="donutChart"></canvas>
-            <div class="chart-center-badge">
-              <div class="chart-center-q">?</div>
-              <div class="chart-center-sub">Outcome</div>
+        <div>
+          <!-- Donut Chart Card -->
+          <div class="chart-card">
+            <div class="chart-wrapper">
+              <canvas id="donutChart"></canvas>
+              <div class="chart-center-badge">
+                <div class="chart-center-q">?</div>
+                <div class="chart-center-sub">Outcome</div>
+              </div>
+            </div>
+            <div class="chart-legend">
+              <div class="legend-item">
+                <div class="legend-dot" style="background: #0284c7;"></div>
+                <span>No Churn <strong id="legend-nochurn">73.5%</strong></span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-dot" style="background: #38bdf8;"></div>
+                <span>Churn <strong id="legend-churn">26.5%</strong></span>
+              </div>
             </div>
           </div>
-          <div class="chart-legend">
-            <div class="legend-item">
-              <div class="legend-dot" style="background: #0284c7;"></div>
-              <span>No Churn <strong id="legend-nochurn">73.5%</strong></span>
+
+          <!-- NIKHIL SAI KUMAR KANDI DEVELOPER PROFILE CARD -->
+          <div class="author-card">
+            <div class="author-header">
+              <div class="author-info-flex">
+                <div class="author-avatar">NK</div>
+                <div>
+                  <div class="author-name-row">
+                    <span class="author-name">Nikhil Sai Kumar Kandi</span>
+                    <span class="author-badge">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                      8.74 CGPA
+                    </span>
+                  </div>
+                  <div class="author-loc">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Visakhapatnam, India
+                  </div>
+                </div>
+              </div>
+              <a href="https://nikhil1456-12.github.io/protofoil/" target="_blank" class="btn-view-profile">
+                View profile ↗
+              </a>
             </div>
-            <div class="legend-item">
-              <div class="legend-dot" style="background: #38bdf8;"></div>
-              <span>Churn <strong id="legend-churn">26.5%</strong></span>
+
+            <!-- Portfolio Projects Showcase Grid -->
+            <div class="author-projects-grid">
+              <a href="https://nikhil1456-12.github.io/CUSTOMER-CHURN-ANALYSIS/" class="project-mini-card active">
+                <div class="mini-title">Customer Churn Analysis</div>
+                <div class="mini-sub">Predictive Retention Suite</div>
+                <span class="mini-tag">● Active App</span>
+              </a>
+              <a href="https://nikhil1456-12.github.io/protofoil/jarvis/" target="_blank" class="project-mini-card">
+                <div class="mini-title">JARVIS AI OS</div>
+                <div class="mini-sub">3D HUD &amp; Mobile Mesh</div>
+                <span class="mini-tag">↗ Live Showcase</span>
+              </a>
+              <a href="https://nikhil1456-12.github.io/RecoverX/" target="_blank" class="project-mini-card">
+                <div class="mini-title">RecoverX Platform</div>
+                <div class="mini-sub">Revenue Recovery Engine</div>
+                <span class="mini-tag">↗ Live App</span>
+              </a>
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -687,7 +865,6 @@
 
     let charts = {};
 
-    // Initial Synthetic Cohort (realistic sample of 50 accounts for explorer table)
     function generateInitialCohort() {
       const records = [];
       const contracts = ['Month-to-month', 'One year', 'Two year'];
@@ -719,7 +896,6 @@
 
     currentData.records = generateInitialCohort();
 
-    // Tab Switcher
     function setTab(tabName) {
       document.querySelectorAll('.tab-item').forEach(b => b.classList.remove('active'));
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
@@ -731,9 +907,7 @@
       if (panel) panel.classList.add('active');
     }
 
-    // Initialize Chart.js
     function initCharts() {
-      // Donut Chart (Agung M Reference layout)
       const ctxDonut = document.getElementById('donutChart').getContext('2d');
       charts.donut = new Chart(ctxDonut, {
         type: 'doughnut',
@@ -764,7 +938,6 @@
         }
       });
 
-      // Contract Bar Chart
       const ctxContract = document.getElementById('contractChart').getContext('2d');
       charts.contract = new Chart(ctxContract, {
         type: 'bar',
@@ -785,7 +958,6 @@
         }
       });
 
-      // Internet Bar Chart
       const ctxInternet = document.getElementById('internetChart').getContext('2d');
       charts.internet = new Chart(ctxInternet, {
         type: 'bar',
@@ -806,7 +978,6 @@
         }
       });
 
-      // Support Chart
       const ctxSupport = document.getElementById('supportChart').getContext('2d');
       charts.support = new Chart(ctxSupport, {
         type: 'bar',
@@ -827,7 +998,6 @@
         }
       });
 
-      // Payment Composition
       const ctxPay = document.getElementById('paymentChart').getContext('2d');
       charts.payment = new Chart(ctxPay, {
         type: 'pie',
@@ -845,7 +1015,6 @@
         }
       });
 
-      // Tenure Cohort Chart
       const ctxTenure = document.getElementById('tenureChart').getContext('2d');
       charts.tenure = new Chart(ctxTenure, {
         type: 'bar',
@@ -867,7 +1036,6 @@
       });
     }
 
-    // Populate Table
     function renderTable() {
       const tbody = document.getElementById('table-body');
       tbody.innerHTML = '';
@@ -897,7 +1065,6 @@
       });
     }
 
-    // Handle CSV File Upload
     function handleFileUpload(event) {
       const file = event.target.files[0];
       if (!file) return;
@@ -928,7 +1095,6 @@
       let newRecords = [];
 
       rows.forEach((row, idx) => {
-        // Dynamic column mapping
         const churnVal = String(row.Churn || row.churn || row.CHURN || row.Exited || row.target || '').toLowerCase();
         const isChurn = churnVal === 'yes' || churnVal === '1' || churnVal === 'true';
         if (isChurn) churnCount++;
@@ -962,7 +1128,6 @@
       currentData.highRisk = Math.round(churnCount * 0.78);
       currentData.records = newRecords;
 
-      // Update UI
       document.getElementById('kpi-total').innerText = rows.length.toLocaleString();
       document.getElementById('kpi-churn-rate').innerText = churnRate + '%';
       document.getElementById('kpi-churn-count').innerText = `${churnCount.toLocaleString()} churned accounts`;
@@ -972,7 +1137,6 @@
       document.getElementById('legend-nochurn').innerText = (100 - parseFloat(churnRate)).toFixed(1) + '%';
       document.getElementById('legend-churn').innerText = churnRate + '%';
 
-      // Update Donut Chart
       charts.donut.data.datasets[0].data = [currentData.nochurn, currentData.churned];
       charts.donut.update();
 
@@ -1062,7 +1226,6 @@
       URL.revokeObjectURL(url);
     }
 
-    // Initialize on window load
     window.addEventListener('DOMContentLoaded', () => {
       initCharts();
       renderTable();

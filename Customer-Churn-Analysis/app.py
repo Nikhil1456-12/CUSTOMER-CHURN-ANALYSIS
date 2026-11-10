@@ -364,6 +364,20 @@ selected_page = st.sidebar.radio("Navigation Menu", pages)
 
 st.sidebar.markdown("---")
 st.sidebar.markdown(f"**Active Source:**\n`{st.session_state.data_source}`")
+st.sidebar.markdown("""
+<div style="background:#f8fafc; padding:14px; border-radius:10px; border:1px solid #e2e8f0; margin-top:12px;">
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+        <div style="width:36px; height:36px; border-radius:50%; background:#0284c7; color:white; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px;">NK</div>
+        <div>
+            <div style="font-weight:700; font-size:13.5px; color:#0f172a;">Nikhil Sai Kumar Kandi</div>
+            <div style="font-size:11.5px; color:#64748b;">📍 Visakhapatnam, India</div>
+        </div>
+    </div>
+    <div style="font-size:11px; color:#0284c7; font-weight:700; margin-bottom:8px;">📈 Top Contributor (CGPA: 8.74)</div>
+    <a href="https://nikhil1456-12.github.io/protofoil/" target="_blank" style="background:#0284c7; color:white; text-decoration:none; padding:6px 12px; border-radius:6px; font-size:11.5px; font-weight:600; display:block; text-align:center;">View Developer Profile ↗</a>
+</div>
+""", unsafe_allow_html=True)
+
 
 # Main Hero Header
 st.markdown("""
