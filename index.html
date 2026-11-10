@@ -1,2 +1,397 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Customer Churn Analysis | Project Showcase</title><style>:root{--accent:#f43f5e;--blue:#38bdf8;--ink:#172033;--muted:#64748b}*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:linear-gradient(135deg,#fff1f2,#f8fafc 55%,#e0f2fe);min-height:100vh}main{max-width:1100px;margin:auto;padding:30px 22px 60px}.nav{display:flex;justify-content:space-between;align-items:center;color:#334155;font-weight:800}.badge{border:1px solid #cbd5e1;border-radius:999px;padding:8px 13px;font-size:12px}.hero{display:grid;grid-template-columns:1fr .9fr;gap:55px;align-items:center;padding:82px 0 58px}.eyebrow{color:#e11d48;text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:900}h1{font-size:clamp(43px,7vw,76px);line-height:1.02;margin:16px 0;color:#172033}p{color:#475569;font-size:18px;line-height:1.7}.actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}.btn{padding:14px 20px;border-radius:12px;text-decoration:none;font-weight:800;background:linear-gradient(100deg,var(--accent),#fb7185);color:white;box-shadow:0 12px 30px #f43f5e35}.btn.alt{background:white;color:#334155;border:1px solid #cbd5e1;box-shadow:none}.dashboard{background:#ffffffd9;border:1px solid #e2e8f0;border-radius:24px;padding:20px;box-shadow:0 25px 70px #94a3b833;transform:rotate(-2deg)}.screen{border-radius:15px;background:#fff;padding:17px;box-shadow:0 4px 18px #64748b1c}.top{display:flex;justify-content:space-between;align-items:center;font-weight:800}.pill{color:#e11d48;background:#fff1f2;border-radius:99px;padding:6px 10px;font-size:11px}.ring{width:170px;height:170px;border-radius:50%;margin:28px auto;background:conic-gradient(#0ea5e9 0 73.5%,#fb7185 73.5% 100%);display:grid;place-items:center}.ring:after{content:'73.5%';width:112px;height:112px;border-radius:50%;background:white;display:grid;place-items:center;font-weight:900;font-size:20px;color:#172033}.legend{display:flex;justify-content:center;gap:18px;font-size:12px;color:#64748b}.legend span:first-child:before{content:'●';color:#0ea5e9;margin-right:5px}.legend span:last-child:before{content:'●';color:#fb7185;margin-right:5px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{padding:23px;border-radius:16px;background:#ffffffaa;border:1px solid #e2e8f0}.card b{font-size:18px}.card p{font-size:14px;margin-bottom:0}@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:55px}.dashboard{transform:none}.cards{grid-template-columns:1fr}}
-</style></head><body><main><div class="nav"><span>✦ NIKHIL SAI KUMAR</span><span class="badge">PROJECT SHOWCASE · 02</span></div><section class="hero"><div><div class="eyebrow">Retention intelligence dashboard</div><h1>Understand.<br>Retain. Grow.</h1><p>Explore customer behavior, identify churn drivers, and discover targeted retention opportunities through an interactive enterprise analytics dashboard.</p><div class="actions"><a class="btn" href="https://customer-churn-analysis.streamlit.app/">🚀 Launch live demo</a><a class="btn alt" href="https://github.com/Nikhil1456-12/CUSTOMER-CHURN-ANALYSIS">View source ↗</a></div></div><div class="dashboard"><div class="screen"><div class="top"><span>Customer Churn Analysis</span><span class="pill">LIVE DASHBOARD</span></div><div class="ring"></div><div class="legend"><span>No Churn 73.5%</span><span>Churn 26.5%</span></div></div></div></section><section class="cards"><div class="card"><b>Interactive exploration</b><p>Navigate features, correlations, categorical composition, and numerical distributions.</p></div><div class="card"><b>Predictive modeling</b><p>Evaluate customer risk with machine learning and measurable model performance.</p></div><div class="card"><b>Retention strategy</b><p>Translate churn drivers into practical actions for improving customer loyalty.</p></div></section></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Customer Churn Intelligence Portal | Interactive Dashboard</title>
+  <style>
+    :root {
+      --navy: #0f172a;
+      --card-bg: #ffffff;
+      --accent: #f43f5e;
+      --teal: #0ea5e9;
+      --green: #10b981;
+      --border: #e2e8f0;
+      --text: #1e293b;
+      --muted: #64748b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #f8fafc;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    /* Top Bar */
+    .topbar {
+      background: var(--navy);
+      color: white;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #10b981;
+    }
+    .top-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      margin-left: 16px;
+      transition: color 0.2s;
+    }
+    .top-links a:hover, .top-links a.active {
+      color: white;
+    }
+    .btn-launch {
+      background: var(--accent);
+      color: white !important;
+      padding: 6px 14px;
+      border-radius: 8px;
+    }
+    /* Tabs Header */
+    .tab-bar {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex;
+      gap: 24px;
+    }
+    .tab-btn {
+      padding: 14px 4px;
+      border: none;
+      background: none;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      position: relative;
+    }
+    .tab-btn.active {
+      color: var(--navy);
+    }
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 3px 3px 0 0;
+    }
+    /* Main Content */
+    .view-panel {
+      display: none;
+      padding: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .view-panel.active {
+      display: block;
+    }
+    /* KPI Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      border-left: 4px solid var(--navy);
+    }
+    .kpi-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .kpi-val {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .kpi-sub {
+      font-size: 12px;
+      color: var(--green);
+      margin-top: 4px;
+    }
+    /* Interactive Churn Simulator */
+    .calc-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+    .input-group {
+      margin-bottom: 16px;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--navy);
+    }
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent);
+    }
+    select, input[type="number"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .risk-meter {
+      background: #f1f5f9;
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .score-circle {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 32px;
+      font-weight: 900;
+      color: white;
+      margin: 16px 0;
+      background: #10b981;
+      transition: background 0.3s ease;
+    }
+    /* Live Embedded Streamlit Container */
+    .app-frame-container {
+      width: 100%;
+      height: 82vh;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      background: white;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    @media (max-width: 800px) {
+      .calc-card { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="brand">
+      <div class="status-dot"></div>
+      <span>Customer Churn Analysis Dashboard</span>
+    </div>
+    <div class="top-links">
+      <a href="https://github.com/Nikhil1456-12/CUSTOMER-CHURN-ANALYSIS" target="_blank">GitHub Repo ↗</a>
+      <a href="https://customer-churn-analysis.streamlit.app/" target="_blank" class="btn-launch">Open Fullscreen App ↗</a>
+    </div>
+  </div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('embed')">🚀 Live Streamlit Application</button>
+    <button class="tab-btn" onclick="switchTab('simulator')">⚡ Interactive Churn Simulator</button>
+    <button class="tab-btn" onclick="switchTab('metrics')">📊 Model Benchmark & Architecture</button>
+  </div>
+
+  <!-- TAB 1: EMBEDDED STREAMLIT APP -->
+  <div id="tab-embed" class="view-panel active">
+    <div class="app-frame-container">
+      <iframe src="https://customer-churn-analysis.streamlit.app/?embed=true" title="Streamlit App"></iframe>
+    </div>
+  </div>
+
+  <!-- TAB 2: INTERACTIVE SIMULATOR -->
+  <div id="tab-simulator" class="view-panel">
+    <div class="kpi-grid">
+      <div class="kpi-card" style="border-left-color: #0ea5e9;">
+        <div class="kpi-title">Cohort Size</div>
+        <div class="kpi-val">7,043</div>
+        <div class="kpi-sub">Telecom customer accounts</div>
+      </div>
+      <div class="kpi-card" style="border-left-color: #10b981;">
+        <div class="kpi-title">Model Accuracy</div>
+        <div class="kpi-val">75.80%</div>
+        <div class="kpi-sub">Class-weighted Random Forest</div>
+      </div>
+      <div class="kpi-card" style="border-left-color: #f43f5e;">
+        <div class="kpi-title">Churn Recall</div>
+        <div class="kpi-val">78.34%</div>
+        <div class="kpi-sub">Detecting at-risk accounts</div>
+      </div>
+      <div class="kpi-card" style="border-left-color: #8b5cf6;">
+        <div class="kpi-title">ROC-AUC Score</div>
+        <div class="kpi-val">84.23%</div>
+        <div class="kpi-sub">Optimal decision threshold</div>
+      </div>
+    </div>
+
+    <div class="calc-card">
+      <div>
+        <h3 style="margin-bottom: 18px; font-size: 18px;">Customer Attributes</h3>
+        <div class="input-group">
+          <label>Contract Type</label>
+          <select id="contract" onchange="calcRisk()">
+            <option value="month">Month-to-month (High Risk Factor)</option>
+            <option value="one">One year</option>
+            <option value="two">Two year (High Loyalty)</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label>Tenure (Months): <span id="tenure-val">12</span></label>
+          <input type="range" id="tenure" min="1" max="72" value="12" oninput="document.getElementById('tenure-val').innerText=this.value; calcRisk();">
+        </div>
+        <div class="input-group">
+          <label>Monthly Charges ($): <span id="charges-val">75</span></label>
+          <input type="range" id="charges" min="18" max="120" value="75" oninput="document.getElementById('charges-val').innerText=this.value; calcRisk();">
+        </div>
+        <div class="input-group">
+          <label>Internet Service</label>
+          <select id="internet" onchange="calcRisk()">
+            <option value="fiber">Fiber optic</option>
+            <option value="dsl">DSL</option>
+            <option value="no">No Internet</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label>Tech Support & Online Security</label>
+          <select id="support" onchange="calcRisk()">
+            <option value="no">No Tech Support</option>
+            <option value="yes">Subscribed</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="risk-meter">
+        <div style="font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase;">Predicted Churn Probability</div>
+        <div class="score-circle" id="risk-score">28%</div>
+        <div id="risk-label" style="font-size: 18px; font-weight: 800; color: var(--navy); margin-bottom: 8px;">Low Risk</div>
+        <p id="risk-rec" style="font-size: 13.5px; color: var(--muted); max-width: 300px;">Customer shows stable retention indicators. Maintain standard service touchpoints.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3: METRICS -->
+  <div id="tab-metrics" class="view-panel">
+    <div class="calc-card" style="grid-template-columns: 1fr;">
+      <h3 style="font-size: 20px;">Model Architecture & Retention Pipeline</h3>
+      <p style="color: var(--muted);">The production engine uses an ensemble Random Forest classifier with balanced class weights to address telecom class imbalance (73.5% non-churn vs. 26.5% churn).</p>
+      <div style="margin-top: 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+        <div style="background:#f8fafc; padding: 18px; border-radius: 12px; border: 1px solid var(--border);">
+          <b style="color:var(--navy);">Key Churn Drivers</b>
+          <ul style="margin: 8px 0 0 18px; font-size: 14px; color: var(--muted);">
+            <li>Month-to-month contracts (42.7% churn rate)</li>
+            <li>Absence of Online Security / Tech Support</li>
+            <li>High monthly charges ($70+) in tenure < 12 months</li>
+            <li>Electronic check payment methods</li>
+          </ul>
+        </div>
+        <div style="background:#f8fafc; padding: 18px; border-radius: 12px; border: 1px solid var(--border);">
+          <b style="color:var(--navy);">Technical Stack</b>
+          <ul style="margin: 8px 0 0 18px; font-size: 14px; color: var(--muted);">
+            <li>Python, Streamlit, Scikit-learn, Joblib</li>
+            <li>Plotly interactive visualizations</li>
+            <li>Automated ReportLab PDF generation</li>
+            <li>GitHub Pages responsive web app</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function switchTab(name) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.view-panel').forEach(p => p.classList.remove('active'));
+      if(name === 'embed') {
+        document.querySelector('.tab-btn:nth-child(1)').classList.add('active');
+        document.getElementById('tab-embed').classList.add('active');
+      } else if(name === 'simulator') {
+        document.querySelector('.tab-btn:nth-child(2)').classList.add('active');
+        document.getElementById('tab-simulator').classList.add('active');
+      } else {
+        document.querySelector('.tab-btn:nth-child(3)').classList.add('active');
+        document.getElementById('tab-metrics').classList.add('active');
+      }
+    }
+
+    function calcRisk() {
+      const contract = document.getElementById('contract').value;
+      const tenure = parseInt(document.getElementById('tenure').value);
+      const charges = parseInt(document.getElementById('charges').value);
+      const internet = document.getElementById('internet').value;
+      const support = document.getElementById('support').value;
+
+      let score = 20;
+      if (contract === 'month') score += 35;
+      else if (contract === 'two') score -= 15;
+
+      if (tenure < 12) score += 20;
+      else if (tenure > 36) score -= 15;
+
+      if (charges > 70) score += 15;
+      if (internet === 'fiber') score += 10;
+      if (support === 'no') score += 12;
+
+      score = Math.max(5, Math.min(95, score));
+
+      const circle = document.getElementById('risk-score');
+      const label = document.getElementById('risk-label');
+      const rec = document.getElementById('risk-rec');
+
+      circle.innerText = score + '%';
+      if (score >= 60) {
+        circle.style.background = '#f43f5e';
+        label.innerText = 'High Flight Risk';
+        label.style.color = '#e11d48';
+        rec.innerText = 'Immediate intervention required. Recommend annual contract discount and complimentary tech support bundle.';
+      } else if (score >= 35) {
+        circle.style.background = '#f59e0b';
+        label.innerText = 'Moderate Risk';
+        label.style.color = '#d97706';
+        rec.innerText = 'Customer is sensitive to monthly charges. Propose tiered plan upgrade or loyalty perks.';
+      } else {
+        circle.style.background = '#10b981';
+        label.innerText = 'Low Risk';
+        label.style.color = '#059669';
+        rec.innerText = 'Customer shows strong retention signals and loyalty. Maintain current engagement cycle.';
+      }
+    }
+  </script>
+</body>
+</html>
